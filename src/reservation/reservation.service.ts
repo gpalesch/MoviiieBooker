@@ -42,7 +42,7 @@ export class ReservationService {
     }
 
     async createReservation(reservationDto: ReservationDto, req): Promise<Reservation> {
-        const startDate = new Date(reservationDto.date);
+        const startDate = reservationDto.date;
         const userId = req.user.sub;
 
         const endDate = new Date(startDate.getTime() + 2 * 60 * 60 * 1000);
