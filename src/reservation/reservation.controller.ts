@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Headers, Param, Post, Req, UseGuards } f
 import { ReservationService } from './reservation.service';
 import { ReservationDto } from 'src/dto/reservation.dto';
 import { JwtAuthGuard } from 'src/jwt/jwt-auth.guard';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Reservation } from 'src/entity/reservation.entity';
 
 @ApiTags('reservations')
@@ -12,6 +12,7 @@ export class ReservationController {
     constructor(private readonly resService: ReservationService) {}
 
     @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
     @Post()
     @ApiOperation({ summary: 'Create new reservation' })
     @ApiResponse({
@@ -28,6 +29,7 @@ export class ReservationController {
 
 
     @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
     @Get()
     @ApiOperation({ summary: 'Show the reservations of the connected user' })
     @ApiResponse({
@@ -44,6 +46,7 @@ export class ReservationController {
 
 
     @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
     @Delete(':id')
     @ApiOperation({ summary: 'Cancel a reservation through the id' })
     @ApiResponse({
