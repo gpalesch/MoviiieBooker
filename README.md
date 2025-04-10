@@ -57,18 +57,22 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Deployment
+## Deployment on Render
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+This NestJS application is deployed on **Render**. You can easily access it via the following link:
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### Access URL:
+[Your Application on Render](https://moviiiebooker.onrender.com/api))
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+You can use this Swagger interface to interact with the backend API, explore all available endpoints, and test the functionality directly from the UI.
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+**User Registration**: Users can register by providing an email, name, and password. After registration, they will receive a token for authentication.
+**User Login**: Users can log in with their registered email and password to obtain a JWT token for subsequent authenticated requests.
+**Movie Search**: Users can search for movies by a specific term and paginate the results. The API will return a list of movies matching the search term.
+**Movie Reservation**: Users can reserve a movie for a specific time slot, specifying the movie and time they wish to book.
+**View Reserved Slots**: Users can view all the movie reservations they have made, including the details of the movie and time slot.
+**Cancel Reservation**: Users can cancel their reservations for a specific time slot, freeing up that slot for others.
+
 
 ## Resources
 
