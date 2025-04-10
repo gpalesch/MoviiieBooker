@@ -1,7 +1,8 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, UseGuards } from '@nestjs/common';
 import { MoviesService } from './movies.service';
-import { ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { AxiosResponse } from 'axios';
+import { JwtAuthGuard } from 'src/jwt/jwt-auth.guard';
 
 @ApiTags('movies')
 @Controller('movies')
@@ -9,6 +10,8 @@ export class MoviesController {
     constructor(private readonly movieService: MoviesService) {}
     
     @Get('/:page/:search')
+    @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
     @ApiOperation({
         summary: 'Retrieve movies based on pagination and search query',
       })
