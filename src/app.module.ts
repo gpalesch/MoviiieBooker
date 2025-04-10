@@ -21,6 +21,8 @@ import { Reservation } from './entity/reservation.entity';
     database: process.env.DB_NAME,
     entities: [User, Reservation],
     synchronize: true,
+    logging: true,
+    logger: 'advanced-console',
   }),UsersModule, MoviesModule, ReservationModule],
   controllers: [AppController],
   providers: [AppService],
