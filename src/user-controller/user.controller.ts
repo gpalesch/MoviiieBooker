@@ -25,6 +25,10 @@ export class UserController {
     status: 400,
     description: 'Bad request, validation error on the registration data.',
   })
+  @ApiResponse({
+    status: 409,
+    description: 'Conflict, user already exists.',
+  })
   register(@Body() registerDto: RegisterDto): Promise<{ token: string }> {
     return this.userService.register(registerDto);
   }
@@ -45,6 +49,10 @@ export class UserController {
   @ApiResponse({
     status: 401,
     description: 'Unauthorized, incorrect email or password.',
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'Not found, user does not exist.',
   })
   login(@Body() loginDto: LoginDto): Promise<{ token: string }> {
     return this.userService.login(loginDto);
