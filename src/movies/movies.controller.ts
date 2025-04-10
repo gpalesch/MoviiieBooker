@@ -1,6 +1,7 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { MoviesService } from './movies.service';
 import { ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { AxiosResponse } from 'axios';
 
 @ApiTags('movies')
 @Controller('movies')
@@ -29,7 +30,7 @@ export class MoviesController {
         status: 404,
         description: 'No movies found for the given search term and page.',
       })
-        allFilms(@Param('page') page: number, @Param('search') search: string ) {
+        allFilms(@Param('page') page: number, @Param('search') search: string ): Promise<AxiosResponse> {
             return this.movieService.allFilms(page, search);
         }
 }
