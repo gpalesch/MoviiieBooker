@@ -62,7 +62,7 @@ $ npm run test:cov
 This NestJS application is deployed on **Render**. You can easily access it via the following link:
 
 ### Access URL:
-[Your Application on Render](https://moviiiebooker.onrender.com/api))
+[Your Application on Render](https://moviiiebooker.onrender.com/api)
 
 You can use this Swagger interface to interact with the backend API, explore all available endpoints, and test the functionality directly from the UI.
 
